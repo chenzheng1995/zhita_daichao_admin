@@ -45,6 +45,8 @@ public class LoginController {
 			if (!Md5Pwd.equals(dataMd5Pwd)) {
 				map.put("msg", "密码错误");
 				return map;
+			}else {
+				map.put("msg", "200");
 			}
 		}
 
