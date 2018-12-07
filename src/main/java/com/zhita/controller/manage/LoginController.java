@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zhita.model.manage.ManageLogin;
 import com.zhita.service.manage.LoginService;
@@ -23,6 +24,7 @@ public class LoginController {
 	MD5Util md5Util;
 
 	@RequestMapping("/login")
+	@ResponseBody
 	public Map<String, String> login(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, String> map = new HashMap<String, String>();
 		String userName = request.getParameter("userName");
