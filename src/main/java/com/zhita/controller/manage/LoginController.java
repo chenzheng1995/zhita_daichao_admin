@@ -16,12 +16,12 @@ import com.zhita.model.manage.ManageLogin;
 import com.zhita.service.manage.LoginService;
 import com.zhita.util.MD5Util;
 
+
 @Controller
 @RequestMapping("/admin_login")
 public class LoginController {
 	@Autowired
 	LoginService loginService;
-	MD5Util md5Util;
 
 	@RequestMapping("/login")
 	@ResponseBody
@@ -39,6 +39,7 @@ public class LoginController {
 				map.put("msg", "用户名不存在");
 				return map;
 			}
+			MD5Util md5Util = new MD5Util();
 			String dataMd5Pwd = manageLogin.getMd5pwd();
 			String Md5Pwd = md5Util.EncoderByMd5(Pwd); // md5加密
 			if (!Md5Pwd.equals(dataMd5Pwd)) {
